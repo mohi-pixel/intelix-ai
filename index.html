@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelixAI - Professional Content Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="logo-text">Intelix</span><span class="logo-accent">AI</span>
+            </div>
+            <p class="tagline">Professional Content Analysis for Creators</p>
+        </header>
+
+        <div class="main-grid">
+            <!-- Input Panel -->
+            <div class="panel">
+                <h2 class="panel-title">📋 Content Input</h2>
+                
+                <div class="mode-tabs">
+                    <button class="mode-tab active" onclick="switchMode('text')">
+                        <span class="tab-icon">📝</span>
+                        <span>Text</span>
+                    </button>
+                    <button class="mode-tab" onclick="switchMode('video')">
+                        <span class="tab-icon">🎥</span>
+                        <span>Video</span>
+                    </button>
+                </div>
+
+                <!-- Text Input Mode -->
+                <div class="tab-content active" id="textTab">
+                    <textarea 
+                        id="textInput" 
+                        placeholder="Paste your video script, caption, or content idea here...&#10;&#10;Example: 'In this video, I'll show you 5 tools that changed my workflow. Number 3 is a game-changer!'"
+                    ></textarea>
+                    <div class="char-count">
+                        <span id="charCount">0</span> characters
+                    </div>
+                    
+                    <div class="examples">
+                        <p class="examples-label">Quick examples:</p>
+                        <button class="btn-example" onclick="loadExample(1)">📄 Script</button>
+                        <button class="btn-example" onclick="loadExample(2)">📸 Caption</button>
+                        <button class="btn-example" onclick="loadExample(3)">💡 Idea</button>
+                    </div>
+                </div>
+
+                <!-- Video Upload Mode -->
+                <div class="tab-content" id="videoTab">
+                    <div class="upload-zone" id="uploadZone">
+                        <div class="upload-icon">🎬</div>
+                        <h3 class="upload-title">Upload Your Video</h3>
+                        <p class="upload-subtitle">Click to browse or drag & drop here</p>
+                        <p class="upload-formats">MP4, MOV, WebM • Max 100MB</p>
+                        <input type="file" id="videoFile" accept="video/*">
+                    </div>
+                    
+                    <div class="video-preview" id="videoPreview">
+                        <video class="video-player" id="videoPlayer" controls></video>
+                        <div class="video-info" id="videoInfo"></div>
+                        <button class="btn-remove" onclick="removeVideo()">
+                            🗑️ Remove Video
+                        </button>
+                    </div>
+                </div>
+
+                <button class="btn-analyze" id="analyzeBtn" onclick="startAnalysis()">
+                    <span class="btn-icon">🚀</span>
+                    <span>Analyze Content</span>
+                </button>
+            </div>
+
+            <!-- Results Panel -->
+            <div class="panel results-panel" id="resultsPanel">
+                <h2 class="panel-title">📊 Analysis Results</h2>
+                
+                <div class="loading" id="loadingState">
+                    <div class="spinner"></div>
+                    <p class="loading-text" id="loadingText">Analyzing your content...</p>
+                    <p class="loading-subtext">This will take just a moment</p>
+                </div>
+
+                <div class="results-display" id="resultsDisplay">
+                    <div class="score-header">
+                        <div class="verdict-badge" id="verdict"></div>
+                        <div class="score-circle" id="scoreCircle"></div>
+                        <p class="score-label">Content Score</p>
+                    </div>
+                    
+                    <div id="resultsContent"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 IntelixAI • Professional Content Analysis Platform</p>
+            <p class="footer-links">
+                <a href="#" onclick="alert('Demo version - No privacy policy available'); return false;">Privacy</a> • 
+                <a href="#" onclick="alert('Demo version - No terms available'); return false;">Terms</a> • 
+                <a href="#" onclick="alert('Contact: info@intelixai.com'); return false;">Contact</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
